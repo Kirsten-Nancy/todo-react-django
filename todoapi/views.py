@@ -14,7 +14,7 @@ def todoList(request, year, month, day):
     todos = Todo.objects.filter(created__date=datetime.date(year, month, day))
     # todos = Todo.objects.all()
     serializer = TodoSerializer(todos, many=True)
-    print(serializer.data)
+    # print(serializer.data)
     return Response(serializer.data)
 
 

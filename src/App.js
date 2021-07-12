@@ -4,7 +4,7 @@ import CustomCalendar from "./components/CustomCalendar"
 import Todos from "./components/Todos"
 
 function App() {
-  const baseUrl = "http://127.0.0.1:8000/api/todos"
+  // const baseUrl = "https://todo-react-django.herokuapp.com/"
   let today = new Date()
   const [todosList, setTodoList] = useState([])
   const [date, chooseDate] = useState({
@@ -41,7 +41,7 @@ function App() {
       completed: false,
       title: title,
     }
-    fetch(`${baseUrl}/add`, {
+    fetch("/add", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -55,7 +55,7 @@ function App() {
 
   const deleteTodo = (id) => {
     // setTodoList(todosList.filter((todo) => todo.id !== id))
-    fetch(`${baseUrl}/delete/${id}`, {
+    fetch(`/delete/${id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
@@ -68,7 +68,7 @@ function App() {
 
   const editTodo = (todo) => {
     let editedTodo = { ...todo, title: todo.title }
-    fetch(`${baseUrl}/update/${todo.id}`, {
+    fetch(`/update/${todo.id}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -85,9 +85,7 @@ function App() {
   }, [date])
 
   const fetchTodos = async () => {
-    let response = await fetch(
-      `${baseUrl}/${date.year}/${date.month}/${date.day}`
-    )
+    let response = await fetch(`/${date.year}/${date.month}/${date.day}`)
     let data = await response.json()
     console.log(todosList)
     setTodoList(data)
