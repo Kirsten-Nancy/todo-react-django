@@ -4,7 +4,6 @@ import CustomCalendar from "./components/CustomCalendar"
 import Todos from "./components/Todos"
 
 function App() {
-  // const baseUrl = "https://todo-react-django.herokuapp.com/"
   let today = new Date()
   const [todosList, setTodoList] = useState([])
   const [date, chooseDate] = useState({
@@ -24,7 +23,7 @@ function App() {
     // )
 
     let completedTodo = { ...todo, completed: true }
-    fetch(`${baseUrl}/update/${todo.id}`, {
+    fetch(`/update/${todo.id}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
