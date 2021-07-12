@@ -148,5 +148,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://192.168.0.101:3000",
-    'todo-react-django.herokuapp.com',
+    'https://todo-react-django.herokuapp.com',
 ]
