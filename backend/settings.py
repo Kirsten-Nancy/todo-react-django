@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dotenv
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,10 +32,9 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-# ALLOWED_HOSTS = [
-#     'todo-react-django.herokuapp.com', '127.0.0.1:8000', '127.0.0.1'
-# ]
+ALLOWED_HOSTS = [
+    'todo-react-django.herokuapp.com', '127.0.0.1:8000', '127.0.0.1'
+]
 
 
 # Application definition
@@ -152,3 +152,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     'https://todo-react-django.herokuapp.com',
 # ]
 CORS_ORIGIN_ALLOW_ALL = True
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
