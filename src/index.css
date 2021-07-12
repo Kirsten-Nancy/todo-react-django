@@ -1,0 +1,166 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+header {
+  border-bottom: 2px solid rgb(231, 228, 228);
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  text-align: center;
+  color: seagreen;
+  font-weight: bold;
+}
+.empty {
+  margin-top: 2rem;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  padding-top: 0;
+}
+.container {
+  width: 100%;
+  padding-top: 2rem;
+}
+
+/* Calendar */
+.react-calendar {
+  border: none !important;
+}
+abbr[title] {
+  text-decoration: none;
+}
+.custom-calendar {
+  padding-top: 2rem;
+}
+.react-calendar__tile {
+  border: none;
+  /* margin-right: 0.05rem !important; */
+  margin-top: 1rem !important;
+  border-radius: 8px;
+  padding: 1rem 0 !important;
+  font-size: 0.9rem;
+}
+.react-calendar__tile--active {
+  background: green !important;
+}
+.react-calendar__tile--now {
+  background: lightblue !important;
+  font-weight: bold;
+}
+h6 {
+  font-size: 1.3rem;
+}
+p {
+  font-style: italic;
+}
+
+input[type="text"] {
+  outline: none;
+  border: 2px solid seagreen;
+}
+
+.todoInput {
+  padding: 6px;
+  margin: 1rem 10px 10px 0px;
+  border: 2px solid seagreen;
+  border-radius: 4px;
+  width: 70%;
+}
+
+.btn {
+  border-radius: 4px;
+  padding: 8px 10px;
+  border: none;
+  width: 20%;
+  color: #fff;
+}
+
+.addButton {
+  background-color: seagreen;
+  width: 25%;
+}
+
+.save-btn {
+  background-color: #4caf50;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+}
+hr {
+  border-top: 1px solid seagreen;
+}
+
+.todo-container {
+  margin-bottom: 1rem;
+}
+.todo {
+  display: flex;
+  padding: 2rem 0;
+}
+.todoLabel {
+  cursor: pointer;
+  flex-grow: 2;
+  margin-top: 5px;
+}
+.dates {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+input[type="checkbox"] {
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  appearance: none;
+  outline: 2px solid lightblue;
+  box-shadow: none;
+  font-size: 2em;
+  cursor: pointer;
+}
+input[type="checkbox"]:checked:after {
+  content: "\2713";
+  color: cadetblue;
+  position: absolute;
+  line-height: 1rem;
+  font-size: 1rem;
+  padding-left: 0.15rem;
+}
+
+@media (min-width: 992px) {
+  .main {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container {
+    flex: 0.5;
+  }
+  .react-calendar {
+    width: 500px !important;
+  }
+  .react-calendar__tile {
+    border: none;
+    margin-top: 3rem !important;
+    border-radius: 8px;
+    padding: 1rem 0 !important;
+    font-size: 0.9rem;
+  }
+  .custom-calendar {
+    padding-right: 10rem;
+    margin-right: 10rem;
+    border-right: 2px solid rgb(231, 228, 228);
+    height: 93vh;
+  }
+}
