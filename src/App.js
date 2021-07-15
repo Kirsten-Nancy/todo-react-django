@@ -26,8 +26,8 @@ function App() {
     fetch(`/update/${todo.id}`, {
       method: "POST",
       headers: {
-        Accept: "application/json",
-        "Content-type": "application/json",
+        Accept: "application/json; odata=verbose",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(completedTodo),
     }).then(() => {
@@ -43,7 +43,7 @@ function App() {
     fetch("/api/todos/add", {
       method: "POST",
       headers: {
-        Accept: "application/json",
+        Accept: "application/json; odata=verbose",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newTodo),
@@ -57,7 +57,7 @@ function App() {
     fetch(`/api/todos//delete/${id}`, {
       method: "DELETE",
       headers: {
-        Accept: "application/json",
+        Accept: "application/json; odata=verbose",
         "Content-Type": "application/json",
       },
     }).then(() => {
@@ -70,7 +70,7 @@ function App() {
     fetch(`/api/todos//update/${todo.id}`, {
       method: "POST",
       headers: {
-        Accept: "application/json",
+        Accept: "application/json; odata=verbose",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(editedTodo),
@@ -85,10 +85,16 @@ function App() {
 
   const fetchTodos = async () => {
     let response = await fetch(
-      `/api/todos//${date.year}/${date.month}/${date.day}`
+      `/api/todos//${date.year}/${date.month}/${date.day}`,
+      {
+        headers: {
+          Accept: "application/json; odata=verbose",
+        },
+      }
     )
+    console.log(response)
     let data = await response.json()
-    console.log(typeof data)
+    console.log(data)
     setTodoList(data)
   }
 
