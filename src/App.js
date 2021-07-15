@@ -83,6 +83,7 @@ function App() {
     fetchTodos()
   }, [date])
 
+  // Add headers
   const fetchTodos = async () => {
     let response = await fetch(
       `/api/todos/${date.year}/${date.month}/${date.day}`,
