@@ -54,7 +54,7 @@ function App() {
 
   const deleteTodo = (id) => {
     // setTodoList(todosList.filter((todo) => todo.id !== id))
-    fetch(`/api/todos//delete/${id}`, {
+    fetch(`/api/todos/delete/${id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json; odata=verbose",
@@ -67,7 +67,7 @@ function App() {
 
   const editTodo = (todo) => {
     let editedTodo = { ...todo, title: todo.title }
-    fetch(`/api/todos//update/${todo.id}`, {
+    fetch(`/api/todos/update/${todo.id}`, {
       method: "POST",
       headers: {
         Accept: "application/json; odata=verbose",
@@ -85,7 +85,7 @@ function App() {
 
   const fetchTodos = async () => {
     let response = await fetch(
-      `/api/todos//${date.year}/${date.month}/${date.day}`,
+      `/api/todos/${date.year}/${date.month}/${date.day}`,
       {
         headers: {
           Accept: "application/json; odata=verbose",
