@@ -33,7 +33,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'todo-react-django.herokuapp.com', '127.0.0.1:8000', 'localhost'
+    'todo-react-django.herokuapp.com', '127.0.0.1', 'localhost'
 ]
 
 

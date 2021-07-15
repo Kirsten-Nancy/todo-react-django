@@ -40,7 +40,7 @@ function App() {
       completed: false,
       title: title,
     }
-    fetch("/add", {
+    fetch("/api/todos/add", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -54,7 +54,7 @@ function App() {
 
   const deleteTodo = (id) => {
     // setTodoList(todosList.filter((todo) => todo.id !== id))
-    fetch(`/delete/${id}`, {
+    fetch(`/api/todos//delete/${id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
@@ -67,7 +67,7 @@ function App() {
 
   const editTodo = (todo) => {
     let editedTodo = { ...todo, title: todo.title }
-    fetch(`/update/${todo.id}`, {
+    fetch(`/api/todos//update/${todo.id}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -84,9 +84,11 @@ function App() {
   }, [date])
 
   const fetchTodos = async () => {
-    let response = await fetch(`/${date.year}/${date.month}/${date.day}`)
+    let response = await fetch(
+      `/api/todos//${date.year}/${date.month}/${date.day}`
+    )
     let data = await response.json()
-    console.log(todosList)
+    console.log(typeof data)
     setTodoList(data)
   }
 
