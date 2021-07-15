@@ -93,9 +93,7 @@ function App() {
         },
       }
     )
-    console.log(response)
     let data = await response.json()
-    console.log(data)
     setTodoList(data)
   }
 
