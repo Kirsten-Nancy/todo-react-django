@@ -83,7 +83,6 @@ function App() {
     fetchTodos()
   }, [date])
 
-  // Add headers
   const fetchTodos = async () => {
     let response = await fetch(
       `/api/todos/${date.year}/${date.month}/${date.day}`,
@@ -93,6 +92,7 @@ function App() {
         },
       }
     )
+
     let data = await response.json()
     setTodoList(data)
   }
@@ -111,20 +111,17 @@ function App() {
           {todosList.length === 0 ? (
             <p className="empty">No todos created</p>
           ) : (
-            <div>
-              {date.day === today.getDate() ? (
-                <AddTodo addTodo={addTodo} />
-              ) : (
-                ""
-              )}
-              <Todos
-                todosList={todosList}
-                toggleTodo={toggleTodo}
-                deleteTodo={deleteTodo}
-                editTodo={editTodo}
-              />
-            </div>
+            " "
           )}
+          <div>
+            {date.day === today.getDate() ? <AddTodo addTodo={addTodo} /> : ""}
+            <Todos
+              todosList={todosList}
+              toggleTodo={toggleTodo}
+              deleteTodo={deleteTodo}
+              editTodo={editTodo}
+            />
+          </div>
         </div>
       </div>
     </div>
