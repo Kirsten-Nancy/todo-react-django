@@ -23,7 +23,7 @@ function App() {
     // )
 
     let completedTodo = { ...todo, completed: true }
-    fetch(`/update/${todo.id}`, {
+    fetch(`/api/todos/update/${todo.id}`, {
       method: "POST",
       headers: {
         Accept: "application/json; odata=verbose",
