@@ -27,7 +27,7 @@ const Todo = ({ todo, toggleTodo, deleteTodo, editTodo }) => {
                 type="checkbox"
                 value={todo.completed}
                 checked={todo.completed}
-                onChange={() => toggleTodo(todo)}
+                onClick={() => toggleTodo(todo)}
               />
               {todo.title}
             </label>
